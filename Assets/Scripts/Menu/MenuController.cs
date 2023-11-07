@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
+    public Score scoreData;
     public Button btnPlay;
     // Start is called before the first frame update
     void Start()

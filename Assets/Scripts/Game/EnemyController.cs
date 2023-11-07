@@ -12,7 +12,7 @@ public class EnemyController : MonoBehaviour
     {
         if (transform.position.x <= -Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0)).x)
         {
-            EnemyGenerator.instance.ManageCandy(this);
+            EnemyGenerator.instance.ManageEnemy (this);
         }
     }
 }

@@ -32,9 +32,9 @@ public class EnemyGenerator : MonoBehaviour
         actual_time += Time.deltaTime;
         if (time_to_create <= actual_time)
         {
-            GameObject candy = Instantiate(Candies[Random.Range(0, Candies.Count)],
+            GameObject Helicopter = Instantiate(Candies[Random.Range(0, Candies.Count)],
             new Vector3(transform.position.x, Random.Range(limitInferior, limitSuperior), 0f), Quaternion.identity);
-            candy.GetComponent<Rigidbody2D>().velocity = new Vector2(-2f, 0);
+            Helicopter.GetComponent<Rigidbody2D>().velocity = new Vector2(-2f, 0);
             actual_time = 0f;
             actual_candies.Add(candy);
         }
@@ -47,20 +47,20 @@ public class EnemyGenerator : MonoBehaviour
         limitSuperior = (bounds.y * 0.9f);
     }
 
-    public void ManageCandy(EnemyController Helicopter_script, PlayerMovement player_script = null)
+    public void ManageEnemy(EnemyController Helicopter_script, PlayerMovement player_script = null)
     {
         if (player_script == null)
         {
             Destroy(Helicopter_script.gameObject);
             return;
         }
-        if (candy_script.frame == 3)
+        if (Helicopter_script.frame == 3)
         {
             SceneManager.LoadScene("GameOver");
             return;
         }
         int lives = player_script.player_lives;
-        int live_changer = candy_script.lifeChanges;
+        int live_changer = Helicopter_script.lifeChanges;
         lives += live_changer;
         print(lives);
         if (lives <= 0)
